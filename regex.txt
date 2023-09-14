@@ -1,0 +1,43 @@
+re.regex= https://docs.python.org/3/library/re.html#flags
+
+re.search
+---------------
+t ='This is python book'
+#for first(^) "This" and for end ($) "book":
+
+\d= any number (a digit).(|) matches either or x/y
+\w = letters ( Match alphanumeric character,including “_”),example:findall
+
+(.)
+---------------
+(Dot.) It's default mode, this matches any character except a newline.
+
+(^) caret
+---------------
+(Caret.) Matches the start of the string, and in MULTILINE mode also matches immediately after each newline.
+
+($)
+----------------
+Matches the end or MULTILINE mode also matches just before the newline. foo matches both ‘foo’ and ‘foobar’, while the regular expression foo$ matches only ‘foo’. More interestingly, searching for foo.$ in 'foo1\nfoo2\n' matches ‘foo2’ normally, but ‘foo1’ in MULTILINE mode; searching for a single $ in 'foo\n' will find two (empty) matches: one just before the newline, and one at the end of the string.
+
+(*)= 0 or more
+-------------------
+Causes the resulting RE to match 0 or more repetitions of the preceding RE, as many repetitions as are possible. ab* will match ‘a’, ‘ab’, or ‘a’ followed by any number of ‘b’s.
+x = re.search(r"^This.*book$",txt)
+#for first(^) "This" and for end ($) "book":
+
+(+)= matches 1 or more
+-----------------------
+Causes the resulting RE to match 1 or more repetitions of the preceding RE. ab+ will match ‘a’ followed by any non-zero number of ‘b’s; it will not match just ‘a’.
+
+(?)=  matches 0 or 1
+-------------------
+Causes the resulting RE to match 0 or 1 repetitions of the preceding RE. ab? will match either ‘a’ or ‘ab’.
+
+{m}
+---------------
+Specifies that exactly m copies of the previous RE should be matched; entire RE not to match. For example, a{6} will match exactly six 'a' characters, but not five.
+
+{m,n}
+-----------------
+match from m to n repetitions of the preceding RE, example, a{3,5} will match from 3 to 5 'a' characters. infinite upper bound. As an example, a{4,}b will match 'aaaab' or a thousand 'a' characters followed by a 'b', but not 'aaab'.
